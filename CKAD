@@ -1,0 +1,20 @@
+https://www.linkedin.com/pulse/ckad-2021-tips-vimrc-bashrc-cheatsheet-marco-ieni/
+
+kubectl get pods/rs/ns/deploymets/nodes - show
+kubectl get pods -o wide - full pods info
+kubectl run name --image='imagename' - create new pod
+kubectl describe pod/ns/rs - description
+kubectl delete pod/rs/ns - remove
+kubectl edit pod/ns/rs - edit yaml file
+kubectl get rs - show replica sets in namespace
+kubectl scale rs/new-replica-set --replicas=0 - change replica count in replica set
+kubectl create -f name.yaml - create deployment/rs
+kubectl get pods -o wide --all-namespaces - yvela namespace shi dzebna
+kubectl det pods -o wide --all-namespaces | grep podname
+kubectl apply -f
+kubectl run redis --image=redis:alpine -l tier=db
+kubectl expose pod redis --port=6379 --name redis-service
+kubectl create deployment webapp --image=kodekloud/webapp-color --replicas=3
+kubectl run httpd --image=httpd:alpine --port=80 --expose
+watch kubectl brdzaneba
+alias kp="kubectl get pods"
