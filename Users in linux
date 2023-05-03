@@ -1,0 +1,55 @@
+# seach string that begins with jasondion in passwd file
+grep '^jasondion' /etc/passwd   
+# show line number and seach string that begins with jasondion in passwd file
+grep '^jasondion' -nu /etc/passwd
+# add new user jasondion
+sudo adduser jasondion
+
+cat /etc/passwd
+# old method to add user with useradd   (need to add psw) 
+sudo useradd -s /bin/bash -d /home/jason -m -G jasondion jason
+(jasondion here is the group    jason user)
+############ Modify and delete account
+# give or change new password  for account jason
+sudo passwd jason  
+# -S mean status 
+sudo passwd -S jason  
+sudo chage -l jason
+# give uid gid id group etc
+id jason  
+#  change jason username to janson // only change user info not group
+sudo usermod -l janson jason  
+# 
+ls -ld /home/jason
+#  change jason group to janson // only change group
+sudo groupmod -n janson jason
+#  remove home directory 
+sudo deluser --remove-home janson 
+# second way to delete user 
+sudo userdel -r jasondion
+# logs for users
+var/log/auth.log
+# show last 15 lines of auth log
+tail -15 /var/log/auth.log
+# show first 15 lines of auth log
+head -15 /var/log/auth.log
+# search for deleted users in whole log file
+grep -E 'userdel' /var/log/auth.log
+# -m create matching directory /home/tim  -p give password
+sudo useradd -m tim -p P@$$word
+id tim
+# create 3 groups students teachers and admin
+sudo groupadd students
+sudo groupadd teachers
+sudo groupadd admin
+#  put tim in admin group
+sudo usermod -a -G admin tim
+sudo usermod -a -G teachers diontraining
+#  grep user admin in group 
+grep admin /etc/group
+grep teachers /etc/group
+#  show 1 page in time  
+cat /etc/group | more 
+#  change groupname  from admin to staff
+sudo groupmod -n Staff admin 
+cat /etc/group | grep Staff

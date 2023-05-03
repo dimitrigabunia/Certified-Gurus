@@ -1,0 +1,49 @@
+#########################################################
+# You can change only permissions and owner with root user if you dont have permissions on file
+# enables changing identity user / su testuser will change on testuser 
+su username
+#  only su will change user on root 
+su  
+#  change ownership of file or folder
+chown 
+# change group owner of file 
+chgrp
+
+# 
+# will change owner of foo to tim 
+sudo chown tim foo1.txt
+# will change owner and group of foo file
+sudo chown tim:Staff foo2.txt
+#  change group of folder
+sudo chown diontraining:Stuff folder
+
+
+
+chmod calc 
+-rwxr-xr-x
+execute=1
+read=4
+write=2
+1+2+4=7 full permission
+5 read and execute 
+3 write and execute
+# permissions  are based on directory , owner of directory can delete modify and etc files in that folder that he not own
+######  Umask  = determines the default permissions for new files
+chmod 1775 will set the sticky bit to file
+chmod 0775 will disable sticky bit
+chmod 0+t add sticky bit to subdirectory
+chmod 0-t remove sticky bit from subdirectory
+# SUID = Set User ID = Tells Linux to run the program with the permissions of whoever owns the file raher that the user who runs the program
+#The SUID and SGID are special permission bits. SUID (Set owner User ID up on execution) is a special type of file permissions given to a file. Normally in Linux/Unix when a program runs, it inherits access permissions from the logged in user. SUID is defined as giving temporary permissions to a user to run a program/file with the permissions of the file owner rather that the user who runs it. SGID permission is similar to the SUID permission, the only difference is – when the script or command with SGID on is run, it runs as if it were a member of the same group in which the file is a member. 
+
+# Set Group ID SGID = Sets the group of the running program to the group of the file
+
+chmod 4775 file   4 to set the SUID bit
+chmod 2775 file  2 to set the SGID bit
+chmod 6775 file  6 to set both bits
+# Set by symbolic code 
+chmod u+s file   4 to set the SUID bit
+chmod g+s file  2 to set the SGID bit
+chmod ug file  6 to set both bits
+
+# 
