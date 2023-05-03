@@ -18,4 +18,3 @@ kubectl create deployment webapp --image=kodekloud/webapp-color --replicas=3
 kubectl run httpd --image=httpd:alpine --port=80 --expose
 watch kubectl brdzaneba
 alias kp="kubectl get pods"
-ad
