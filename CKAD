@@ -8,7 +8,8 @@ kubectl delete pod/rs/ns - remove
 kubectl edit pod/ns/rs - edit yaml file
 kubectl get pod <pod-name> -o yaml > pod-definition.yaml - If you are not given a pod definition file, you may extract the definition to a file
 kubectl get rs - show replica sets in namespace
-kubectl scale rs/new-replica-set --replicas=0 - change replica count in replica set
+kubectl replace -f file.yml - scale replica set
+kubectl scale --replicas=6 -f file.yml - change replica count in replica set
 kubectl create -f name.yaml - create deployment/rs
 kubectl get pods -o wide --all-namespaces - yvela namespace shi dzebna
 kubectl det pods -o wide --all-namespaces | grep podname
