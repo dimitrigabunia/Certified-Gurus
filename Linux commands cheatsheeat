@@ -1,0 +1,15 @@
+# check what files are most large in system sort it and display 20 of them in type of ( Biggest ones >> to smallest ones )  
+sudo du -a / 2>/dev/null | sort -n -r | head -n 20
+# Displaying used space of folders and files in current directory 
+du -sh . 
+# Displaying ram and swap total , usage and  etc in gb 
+free -h 
+# Command will delete folders with name from 1 to 200 in foldername/  
+rm -rf /opt/foldername/{1..200}  
+# Delete all files and folders in folder foldername/
+rm -rf /opt/foldername/*
+# Delete 1 and 2 folder in foldername 
+rm -rf /opt/foldername/{1,2}
+
+
+#will be upgraded :D 
