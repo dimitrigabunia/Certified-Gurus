@@ -1,0 +1,4 @@
+#  Check status of agent / need to be in agentfolder where ./svc.sh script is placed
+./svc.sh status
+# Restart tfs agents on linux hosts 
+cd /pathtoagent/agentname && ./svc.sh stop && ./svc.sh start && cd /pathtoagent/agentname && ./svc.sh stop && ./svc.sh start
