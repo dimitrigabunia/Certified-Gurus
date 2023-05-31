@@ -1,8 +1,13 @@
 https://www.linkedin.com/pulse/ckad-2021-tips-vimrc-bashrc-cheatsheet-marco-ieni/
 
+kubectl get all - show all created objects
 kubectl get pods/rs/ns/deploymets/nodes - show
 kubectl get pods -o wide - full pods info
-kubectl run name --image='imagename' - create new pod
+kubectl get pods --namespace=namespacename
+kubectl get pods --all-namespaces | grep podname - search pod in namespaces
+kubectl run name --image='imagename' --namespace=namespacename - create new pod
+kubectl run name -l tier=db --image=redis:alpine - -l "label"
+kubectl expose pod name --port=portnumber --name redis-service - create service to expose pod application within the cluster on port number.
 kubectl describe pod/ns/rs - description
 kubectl delete pod/rs/ns - remove
 kubectl edit pod/ns/rs - edit yaml file
@@ -12,6 +17,11 @@ kubectl replace -f file.yml - scale replica set
 kubectl scale --replicas=6 replicaset rsname - change replica count in replica set
 kubectl scale --replicas=6 -f file.yml - change replica count in replica set
 kubectl create -f name.yaml - create deployment/rs
+kubectl create deployment name --image=imagename --replicas=number
+kubectl expose pod name --port=6379 --name name --dry-run=client -o yaml - Create a Service named redis-service of type ClusterIP to expose pod redis on port 6379
+ubectl create service clusterip name --tcp=6379:6379 --dry-run=client -o yaml
+kubectl expose pod nginx --port=80 --name nginx-service --type=NodePort --dry-run=client -o yaml
+kubectl create service nodeport nginx --tcp=80:80 --node-port=30080 --dry-run=client -o yaml
 kubectl get pods -o wide --all-namespaces - yvela namespace shi dzebna
 kubectl det pods -o wide --all-namespaces | grep podname
 kubectl apply -f
@@ -21,3 +31,10 @@ kubectl create deployment webapp --image=kodekloud/webapp-color --replicas=3
 kubectl run httpd --image=httpd:alpine --port=80 --expose
 watch kubectl brdzaneba
 alias kp="kubectl get pods"
+kubectl [command] [TYPE] [NAME] -o <output_format>
+  -o jsonOutput a JSON formatted API object.
+  -o namePrint only the resource name and nothing else.
+  -o wideOutput in the plain-text format with any additional information.
+  -o yamlOutput a YAML formatted API object.
+  --dry-run: By default, as soon as the command is run, the resource will be created. If you simply want to test your command, use the 
+  --dry-run=client option. This will not create the resource. Instead, tell you whether the resource can be created and if your command is right.
