@@ -31,6 +31,9 @@ kubectl create deployment webapp --image=kodekloud/webapp-color --replicas=3
 kubectl run httpd --image=httpd:alpine --port=80 --expose
 watch kubectl brdzaneba
 alias kp="kubectl get pods"
+k run webapp-green --image=kodekloud/webapp-color --command -- python app.py --color green - create pod with command and args
+k run webapp-green --image=kodekloud/webapp-color -- --color green - create pod with args
+k replace --force -f /tmp/kubectl-edit-4136737917.yaml - edit pod
 kubectl [command] [TYPE] [NAME] -o <output_format>
   -o jsonOutput a JSON formatted API object.
   -o namePrint only the resource name and nothing else.
