@@ -62,7 +62,7 @@ http {
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
-
+#
         error_page 404 /404.html;
         location / {
             proxy_pass http://192.168.1.200;
